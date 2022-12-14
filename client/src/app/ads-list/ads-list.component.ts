@@ -11,8 +11,11 @@ export class AdsListComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.loadAds().subscribe((value)=> {
-      console.log(value);
+    this.apiService.loadAds().subscribe({
+      next: (value) => {
+        console.log(value);
+      },
+      error: (error) => console.log(error)
     })
   }
 
