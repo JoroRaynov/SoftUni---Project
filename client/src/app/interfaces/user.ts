@@ -3,5 +3,4 @@ export interface IUser {
     userName: string;
     hashedPassword: string;
     _v: number;
-
 }

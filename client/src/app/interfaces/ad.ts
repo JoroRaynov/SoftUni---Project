@@ -5,10 +5,12 @@ export interface IAd {
     title: string;
     category: string;
     imageUrl: string;
+    price: number;
     description: string;
     _ownerId: IUser;
     location: string;
     contact: string;
+
     _v: number;
 }
 

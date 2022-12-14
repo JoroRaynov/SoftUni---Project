@@ -41,15 +41,17 @@
     font-weight: bold;
     line-height: 28px;
     text-transform: capitalize;
-    margin-bottom:6px;
+    margin-bottom:12px;
 }
 
 .article .articleDescription {
     font-size: 14px;
     font-weight: 300;
+    color: #7F9799;
 }
 
 .articleItem {
-    font-weight: 600;
-    margin-bottom: 12px
+    /* font-weight: 600; */
+
+    margin-bottom: 18px
 } 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { IAd } from '../interfaces/ad';
 
 @Component({
   selector: 'app-ads-list',
@@ -7,13 +8,15 @@ import { ApiService } from '../api.service';
   styleUrls: ['./ads-list.component.css']
 })
 export class AdsListComponent implements OnInit {
+  
+  adList: IAd[] | null = null;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.apiService.loadAds().subscribe({
       next: (value) => {
-        console.log(value);
+        this.adList = value;
       },
       error: (error) => console.log(error)
     })
