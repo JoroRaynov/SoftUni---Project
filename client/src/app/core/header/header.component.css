@@ -19,7 +19,7 @@
     position: absolute;
     top: 65%;
     right: 2rem;
-    transform: translateY(-50%)
+    transform: translateY(-70%)
 }
 .navigation ul li{
     display: inline-block;
