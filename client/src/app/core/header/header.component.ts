@@ -9,9 +9,8 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
   
+  
   ngOnInit(): void {
   }
-  hasUser() {
-    return false;
-  }
+ 
 }

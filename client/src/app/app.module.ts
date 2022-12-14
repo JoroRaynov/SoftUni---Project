@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { AdsListComponent } from './ads-list/ads-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MainComponent } from './main/main.component';
     CommonModule,
     AppRoutingModule,
     CoreModule,
+    AuthModule,
     HttpClientModule
   ],
   providers: [],

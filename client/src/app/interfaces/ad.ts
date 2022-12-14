@@ -11,7 +11,7 @@ export interface IAd {
     location: string;
     contact: string;
 
-    _v: number;
+    __v: number;
 }
 
 // title: { type: 'string', required: true, minlength: [5, 'Title must be at least 5 characters long']},

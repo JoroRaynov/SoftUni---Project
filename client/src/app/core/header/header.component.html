@@ -6,17 +6,18 @@
     <nav class="navigation">
         <ng-container *ngIf="hasUser()">
         <ul>
-            <li><a href=""><i class="fa-regular fa-comment">  </i>Съобщения</a></li>
-            <li><a href=""> <i class="fa-regular fa-heart"></i></a> </li>
-            <li> <a href=""> <i class="fa-regular fa-user"></i>Твоят профил</a></li>
+            <li><a routerLink=""><i class="fa-regular fa-comment">  </i>Съобщения</a></li>
+            <li><a routerLink=""> <i class="fa-regular fa-heart"></i></a> </li>
+            <li> <a routerLink=""> <i class="fa-regular fa-user"></i>Твоят профил</a></li>
             <button class="add">Добави обява</button>
         </ul>
     </ng-container>
     <ng-container *ngIf="!hasUser()">
         <ul>
-            <li><a href="">Всички обяви</a></li>
-            <li><a href="">Влез</a></li>
-            <li><a href="">Регистрирай се</a> </li>
+            <li><a routerLink="/">Начало</a></li>
+            <li><a routerLink="">Всички обяви</a></li>
+            <li><a routerLink="/auth/login">Влез</a></li>
+            <li><a routerLink="/auth/register">Регистрирай се</a> </li>
         </ul>
     </ng-container>
     </nav>
