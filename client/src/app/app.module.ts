@@ -17,10 +17,10 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     CommonModule,
     AppRoutingModule,
     CoreModule,
-    AuthModule,
     HttpClientModule
   ],
   providers: [],

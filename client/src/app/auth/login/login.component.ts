@@ -10,11 +10,11 @@ import { AuthService } from '../auth.service';
 export class LoginComponent  {
 
   constructor(private router: Router, private authService: AuthService) { 
-    this.authService.user  = {
-      email: 'john@gmail.com',
-      userName: 'John',
-    } as any;
-    this.router.navigate(['/']);
+    // this.authService.user  = {
+    //   email: 'john@gmail.com',
+    //   userName: 'John',
+    // } as any;
+    // this.router.navigate(['/']);
   }
 
   
