@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { IAd } from '../interfaces/ad';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  adList: IAd[] | null = null;
 
+  constructor(private apiService: ApiService) { }
+//TODO GET LAST 6 ADS
   ngOnInit(): void {
+    this.apiService.loadAds().subscribe({
+      next: (value) => {
+        this.adList = value;
+      },
+      error: (error) => console.log(error)
+    })
   }
 
 }

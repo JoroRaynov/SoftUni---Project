@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
+import { AdsModule } from './ads/ads.module';
+import { AdsRoutingModule } from './ads/ads-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    AdsModule,
+    AdsRoutingModule,
     AuthModule,
     CommonModule,
-    AppRoutingModule,
     CoreModule,
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [],
