@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { IAd } from '../interfaces/ad';
+import { IAd } from '../shared/interfaces/ad';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.loadAds().subscribe({
       next: (value) => {
-        this.adList = value;
+        this.adList = value.slice(-6);
       },
       error: (error) => console.log(error)
     })

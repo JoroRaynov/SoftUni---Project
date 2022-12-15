@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { IAd } from './interfaces/ad';
-import { IUser } from './interfaces/user';
+import { IAd } from './shared/interfaces/ad';
+import { IUser } from './shared/interfaces/user';
+import { Observable } from 'rxjs';
 
 
 
@@ -21,7 +22,7 @@ export class ApiService {
   }
   
 
-  loadAd(id: string) {
+  loadAd(id: string): Observable<IAd>{
     return this.httpClient.get<IAd>(`${apiURL}/data/catalog/${id}`);
   }
 

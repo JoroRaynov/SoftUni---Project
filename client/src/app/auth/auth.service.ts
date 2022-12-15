@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '../interfaces/user';
+import { IUser } from '../shared/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
