@@ -1,7 +1,7 @@
 export interface IUser {
     email: string;
-    userName: string;
     hashedPassword: string;
     userAds: string[];
+    tel: string;
     __v: number;
 }

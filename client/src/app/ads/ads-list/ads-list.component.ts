@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { IAd } from '../interfaces/ad';
+import { ApiService } from '../../api.service';
+import { IAd } from '../../interfaces/ad';
 
 @Component({
   selector: 'app-ads-list',

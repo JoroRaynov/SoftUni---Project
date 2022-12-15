@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { AdsListComponent } from './ads-list/ads-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
@@ -12,7 +11,6 @@ import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
-    AdsListComponent,
     MainComponent,
   ],
   imports: [
