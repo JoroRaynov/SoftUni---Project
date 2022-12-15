@@ -47,10 +47,10 @@ i {
     padding: 10px 24px 10px 24px;
     margin-right: 2rem;
 
-    background-color: #fff;
+    /* background-color: rgb(13, 13, 13); */
     border: 5px solid #FFFFFF;
     border-radius: 4px;
-    color: #002f34;
+    color: #0e0e0e;
     font-size: 16px;
     font-weight: 700;
     transition: background-color 300ms ease-in-out;
