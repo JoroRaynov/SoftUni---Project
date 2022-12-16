@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
 
   loginFormGroup: FormGroup = this.formBuilder.group({
-    'email': new FormControl('', [Validators.required, ]),
+    'email': new FormControl('', [Validators.required, Validators.pattern(/^.+@.+\..+$/) ]),
     'password': new FormControl('', [Validators.required, Validators.minLength(6)])
   }) 
 
@@ -30,6 +30,6 @@ export class LoginComponent {
     console.log('form is submitted', this.loginFormGroup);
   }
   handleLogin(): void {
-    console.log('form must be submitted');
+    console.log(this.loginFormGroup);
   }
 }

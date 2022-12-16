@@ -4,7 +4,10 @@
       <input formControlName="email" type="text" placeholder="Имеил" autofocus/>
       <i class="fa fa-user"></i>
       <ng-container *ngIf="loginFormGroup.controls['email'].touched && loginFormGroup.controls['email'].invalid">
-        <p  class="error">
+        <p *ngIf="!loginFormGroup.controls['email'].errors?.['required'] && loginFormGroup.controls['email'].errors?.['pattern']" class="error">
+          Email is invalid!
+        </p>
+        <p *ngIf="loginFormGroup.controls['email'].errors?.['required']" class="error">
           Email is required!
         </p>
       </ng-container>
@@ -24,7 +27,7 @@
       <div>
       <a routerLink='/auth/register'>Нямаш регистрация?</a>
     </div>
-      <button (click)="loginHandler()">
+      <button [disabled]="loginFormGroup.invalid">
         <i class="spinner"></i>
         <span class="state">Влез</span>
       </button>
