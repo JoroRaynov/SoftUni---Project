@@ -19,7 +19,6 @@ export class AdDetailsComponent implements OnInit {
     const adId = this.activatedRoute.snapshot.params['id'];
     this.apiService.loadAd(adId).subscribe(ad => {
       this.adDetails = ad;
-      console.log(ad)
     });
   }
 }

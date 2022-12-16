@@ -14,9 +14,11 @@ export class MainComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 //TODO GET LAST 6 ADS
   ngOnInit(): void {
-    this.apiService.loadAds().subscribe({
+    this.apiService.loadOnlySixAds().subscribe({
       next: (value) => {
-        this.adList = value.slice(-6);
+        console.log(value);
+        
+        this.adList = value;
       },
       error: (error) => console.log(error)
     })

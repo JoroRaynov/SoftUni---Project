@@ -17,6 +17,16 @@ export class ApiService {
   
   constructor(private httpClient: HttpClient) {}
 
+
+  // loadPostList(themeId: string, limit?: number): Observable<IPost[]> {
+  //   return this.http.get<IPost[]>(
+  //     `${apiUrl}/posts${limit ? `?limit=${limit}` : ''}`
+  //   );
+  // }
+  loadOnlySixAds() {
+      return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog/six`)
+  }
+  
   loadAds() {
     return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog`);
   }
@@ -28,5 +38,9 @@ export class ApiService {
 
   userProfile() {
     return this.httpClient.get<IUser[]>(`${apiURL}/auth/profile`);
+  }
+
+  getAdsByUserId(id: string) {
+    return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog?where=_ownerId%3D%22${id}%22`)
   }
 }
