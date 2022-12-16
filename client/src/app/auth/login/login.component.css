@@ -79,7 +79,7 @@ body {
   .login input:focus {
     outline: none;
     color: #444;
-    border-color: #2196f3;
+    border-color: #002F34;
     border-left-width: 35px;
   }
   .login input:focus + i.fa {
@@ -99,6 +99,11 @@ body {
     margin: 10px 0 30px 0;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
+  }
+  .error {
+    color: red;
+    font-size: 14px;
+    font-style: italic;
   }
   .login button {
     width: 100%;
@@ -137,7 +142,7 @@ body {
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   }
   .login:not(.loading) button:hover {
-    box-shadow: 0px 1px 3px #2196f3;
+    box-shadow: 0px 1px 3px #002F34;
   }
   .login:not(.loading) button:focus {
     border-bottom-width: 4px;

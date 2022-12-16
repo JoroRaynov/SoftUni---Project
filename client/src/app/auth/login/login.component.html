@@ -1,15 +1,30 @@
 <div class="wrapper">
-    <form class="login">
+    <form class="login"  [formGroup]="loginFormGroup" (ngSubmit)="handleLogin()">
       <p class="title">Влез</p>
-      <input type="text" placeholder="Имеил" autofocus/>
+      <input formControlName="email" type="text" placeholder="Имеил" autofocus/>
       <i class="fa fa-user"></i>
-      <input type="password" placeholder="Парола" />
+      <ng-container *ngIf="loginFormGroup.controls['email'].touched && loginFormGroup.controls['email'].invalid">
+        <p  class="error">
+          Email is required!
+        </p>
+      </ng-container>
+      
+      <input formControlName="password" type="password" placeholder="Парола" />
       <i class="fa fa-key"></i>
+      <ng-container
+       *ngIf="loginFormGroup.controls['password'].touched && loginFormGroup.controls['password'].invalid">
+        <p *ngIf="loginFormGroup.controls['password'].errors?.['required']" class="error">
+          Password is required!
+        </p>
+        <p *ngIf="loginFormGroup.controls['password'].errors?.['minlength']" class="error">
+          Password must be at least 6 characters long!
+        </p>
+      </ng-container>
       <a href="javascript:void(0)">Забравена парола?</a>
       <div>
       <a routerLink='/auth/register'>Нямаш регистрация?</a>
     </div>
-      <button>
+      <button (click)="loginHandler()">
         <i class="spinner"></i>
         <span class="state">Влез</span>
       </button>
