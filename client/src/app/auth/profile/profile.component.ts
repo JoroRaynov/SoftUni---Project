@@ -8,12 +8,13 @@ import { IUser } from '../../shared/interfaces/user';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  userData: IUser[] | null = null;
+  userData: IUser | null = null;
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {
     
-    this.apiService.userProfile().subscribe({
+    this.apiService.userProfile('639db0af00ea3a86487085fe').subscribe({
       next: (value) => {
+        console.log(value);
         this.userData = value;
       },
       error: (err) => {
