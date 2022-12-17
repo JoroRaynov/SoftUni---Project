@@ -13,9 +13,7 @@ export class HeaderComponent  {
     return this.authService.isLoggedIn;
   }
 
-  get currentUser() {
-    return localStorage.getItem('currentUser')
-  }
+  
 
   
   

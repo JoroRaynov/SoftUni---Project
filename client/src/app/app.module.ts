@@ -23,7 +23,7 @@ import { AdsRoutingModule } from './ads/ads-routing.module';
     CommonModule,
     CoreModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

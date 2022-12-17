@@ -7,7 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService, CreateUserDto } from '../auth.service';
+import { IUser } from 'src/app/shared/interfaces/user';
+import { AuthService} from '../auth.service';
 import { passwordMatch } from '../util';
 
 @Component({
@@ -43,14 +44,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   handleRegister(): void {
-    const { email, passwords, tel } = this.registerFormGroup.value;
-    const body: CreateUserDto = {
-      email: email,
-      password: passwords.password,
-      tel: tel
-    };
-    console.log(tel)
-    this.authService.register$(body).subscribe({
+    if(this.registerFormGroup.invalid) {return;}
+    const { email, passwords:{password, rePassword}, tel } = this.registerFormGroup.value;
+    
+    this.authService.register$(email, password, tel).subscribe({
       next: (data) => {
         localStorage.setItem('currentUser', JSON.stringify({ data }) ),
         this.router.navigate(['/'])

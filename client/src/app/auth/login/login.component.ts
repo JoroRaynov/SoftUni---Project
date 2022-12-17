@@ -26,7 +26,6 @@ export class LoginComponent {
   //   console.log('form is submitted', this.loginFormGroup);
   // }
   handleLogin(): void {
-    console.log(this.loginFormGroup.value)
     this.authService.login$(this.loginFormGroup.value).subscribe({
       next: (userData) => {
     localStorage.setItem('currentUser', JSON.stringify(userData))
