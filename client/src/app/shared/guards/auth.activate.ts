@@ -22,9 +22,14 @@ export class AuthActivate implements CanActivate {
     | boolean
     | UrlTree
      {
-        if(this.authService.isLoggedIn){
-            return true;
-        } 
-        return this.router.createUrlTree(['/auth/login'])
+        // if(this.authService.isLoggedIn){
+        //     return true;
+        // } 
+        if (localStorage.getItem('currentUser')) {
+          // logged in so return true
+          return true;
+      }
+       this.router.navigate(['/auth/login'])
+       return false;
   }
 }

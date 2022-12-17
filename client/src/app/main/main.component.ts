@@ -16,7 +16,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.loadOnlySixAds().subscribe({
       next: (value) => {
-        console.log(value);
         
         this.adList = value;
       },

@@ -15,14 +15,29 @@
     </ng-container>
     <input formControlName="tel" name="tel" id="tel" type="text" placeholder="Телефон" autofocus />
     <i class="fa fa-phone"></i>
+    <!-- password -->
     <div formGroupName="passwords">
       *
       <input formControlName="password" type="password" name="password" id="password" placeholder="Парола" />
       <i class="fa fa-key"></i>
-      
+      <ng-container *ngIf="passwordsGroup.controls['password'].touched && passwordsGroup.controls['password'].invalid">
+        <p *ngIf="passwordsGroup.controls['password'].errors?.['required']" class="error">
+          Password is required
+        </p>
+        <p *ngIf="passwordsGroup.controls['password'].errors?.['minlength']" class="error">
+          Password must be at least 6 characters long!
+        </p>
+      </ng-container>
+
+
       *
       <input formControlName="rePassword" type="password" name="rePassword" id="rePassword" placeholder="Повтори парола" />
       <i class="fa fa-key"></i>
+      <ng-container *ngIf="passwordsGroup.controls['rePassword'].touched && passwordsGroup.controls['rePassword'].invalid">
+        <p class="error">
+          Repeat password doesn't match password!
+        </p>
+      </ng-container>
     </div>
     <a routerLink='/auth/login'>Вече имате регистрация?</a>
     <p class="star">* - задължителни полета</p>
