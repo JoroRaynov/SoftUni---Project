@@ -1,0 +1,57 @@
+* ul {
+    list-style: none;
+}
+.articles li{
+    display: inline-block;
+    width: 20%;
+    margin-right: 5%;
+}
+
+
+/* .articles li:nth-child(4n+4){
+    
+    margin-right: 0;
+} */
+
+.article{
+    width: 200px;
+    /* margin-top: 50px; */
+    margin: 50px 50px;
+}
+.heroTitle {
+    text-align: center;
+}
+.article .articleImageWrapper{
+    aspect-ratio: 1 / 1;
+    border-radius: 21px;
+    margin-bottom: 8px;
+    overflow: hidden;
+
+
+}
+
+.article .articleImageWrapper .articleImg {
+    width: 100%;
+  
+}
+
+.article .articleTitle {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: 28px;
+    text-transform: capitalize;
+    margin-bottom:12px;
+}
+
+.article .articleDescription {
+    font-size: 14px;
+    font-weight: 300;
+    color: #7F9799;
+}
+
+.articleItem {
+    /* font-weight: 600; */
+
+    margin-bottom: 18px
+} 

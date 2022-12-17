@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <form class="login" [formGroup]="registerFormGroup" (ngSubmit)="handleRegister()">
+    <p class="title">Регистрирай се</p>
+    *
+    <input formControlName="email" name="email" id="email" type="text" placeholder="Имейл" autofocus />
+    <i class="fa fa-user"></i>
+    <ng-container *ngIf="registerFormGroup.controls['email'].touched && registerFormGroup.controls['email'].invalid">
+      <p *ngIf="!registerFormGroup.controls['email'].errors?.['required'] && registerFormGroup.controls['email'].errors?.['pattern']"
+        class="error">
+        Email is invalid!
+      </p>
+      <p *ngIf="registerFormGroup.controls['email'].errors?.['required']" class="error">
+        Email is required!
+      </p>
+    </ng-container>
+    <input formControlName="tel" name="tel" id="tel" type="text" placeholder="Телефон" autofocus />
+    <i class="fa fa-phone"></i>
+    <!-- password -->
+    <div formGroupName="passwords">
+      *
+      <input formControlName="password" type="password" name="password" id="password" placeholder="Парола" />
+      <i class="fa fa-key"></i>
+      <ng-container *ngIf="passwordsGroup.controls['password'].touched && passwordsGroup.controls['password'].invalid">
+        <p *ngIf="passwordsGroup.controls['password'].errors?.['required']" class="error">
+          Password is required
+        </p>
+        <p *ngIf="passwordsGroup.controls['password'].errors?.['minlength']" class="error">
+          Password must be at least 6 characters long!
+        </p>
+      </ng-container>
+
+
+      *
+      <input formControlName="rePassword" type="password" name="rePassword" id="rePassword" placeholder="Повтори парола" />
+      <i class="fa fa-key"></i>
+      <ng-container *ngIf="passwordsGroup.controls['rePassword'].touched && passwordsGroup.controls['rePassword'].invalid">
+        <p class="error">
+          Repeat password doesn't match password!
+        </p>
+      </ng-container>
+    </div>
+    <a routerLink='/auth/login'>Вече имате регистрация?</a>
+    <p class="star">* - задължителни полета</p>
+
+    <button [disabled]="registerFormGroup.invalid">
+      <i class="spinner"></i>
+      <span class="state">Регистрирай се</span>
+    </button>
+  </form>
+
+</div>

@@ -1,0 +1,30 @@
+<ng-container *ngIf="adList">
+
+    <h2 class="heroTitle">Последно добавени обяви</h2>
+    
+    <section id="articleSection">
+        <ul class="articles">
+            <ng-container *ngFor="let ad of adList">
+            <li>
+                <article class="article">
+                    <div class="articleImageWrapper">
+                        <a routerLink="/details/{{ad._id}}">
+                            <img class="articleImg"
+                                src="{{ad.imageUrl}}"
+                                alt="">
+                        </a>
+                    </div>
+                    <h3 class="articleTitle">{{ad.title}}</h3>
+                    <!-- <span class="articleItem">Category: {{ad.category}}</span> -->
+                    <p class="articleDescription">{{ad.location}}</p>
+                    <p class="articlePrice">{{ad.price}} лв</p>
+                </article>
+            </li>
+        </ng-container>
+        </ul>
+    </section>
+    </ng-container>
+    <ng-container *ngIf="!adList">
+        <h2 class="heroTitle"> Все още няма обяви...</h2>
+    </ng-container>
+    

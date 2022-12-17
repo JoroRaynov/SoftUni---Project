@@ -1,0 +1,35 @@
+<header class="header">
+    <a routerLink="/">
+        <img class="logo" src="../../../assets/images/olx-logo.png" alt="olx-logo">
+    </a>
+
+    <nav class="navigation">
+        <ng-container *ngIf="isLogged">
+        <ul>
+            <li><a routerLink="/">Начало</a></li>
+
+            <li><a routerLink="/data/catalog">Всички обяви</a></li>
+
+            <li><a routerLink='' ><i class="fa-regular fa-comment">  </i>Съобщения</a></li>
+            <li><a routerLink=''> <i class="fa-regular fa-heart"></i></a> </li>
+            <li> <a routerLink="/auth/profile"> <i class="fa-regular fa-user"></i>Твоят профил</a></li>
+            <li> <a routerLink="/data/catalog/new" class="add"> <i class="fa-sharp fa-solid fa-plus"></i>Добави обява</a></li>
+            <!-- <button class="add">Добави обява</button> -->
+            <li> <a routerLink="/auth/logout"> <i class="fa-solid fa-right-from-bracket"></i>Излез</a></li>
+
+        </ul>
+    </ng-container>
+    <ng-container *ngIf="!isLogged">
+        <ul>
+            <li><a routerLink="/">Начало</a></li>
+            <li><a routerLink="/auth/login">Влез</a></li>
+            <li><a routerLink="/auth/register">Регистрирай се</a> </li>
+        </ul>
+    </ng-container>
+    </nav>
+</header>
+
+
+    
+
+
