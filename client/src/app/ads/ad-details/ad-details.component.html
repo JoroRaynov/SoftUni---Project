@@ -16,7 +16,7 @@
             <h3 class="product-title">{{adDetails.title}}</h3>
             
             
-            <h4 class="price">Цена: <span>{{adDetails.price}}</span></h4>
+            <h4 class="price">Цена: <span>{{adDetails.price}} лв</span></h4>
             <h5 class="sizes">Категория:
               <span class="size" data-toggle="tooltip" title="small">{{adDetails.category}}</span>
             </h5>
@@ -27,14 +27,26 @@
                 <span class="size" data-toggle="tooltip" title="small">{{adDetails.contact}}</span>
               </h5>
               <p class="product-description">{{adDetails.description}}</p>
-
+              <ng-container *ngIf="!_isOwner">
+               
             <div class="action">
               <button class="add-to-cart btn btn-default" type="button">Съобщение</button>
       
               <button class="add-to-cart btn btn-default" type="button">Обади се</button>
             
               <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+
+              <!-- {{isOwner}} -->
             </div>
+          </ng-container>
+          <ng-container *ngIf="_isOwner">
+               
+            <div class="action">
+              <a routerLink="/data/catalog/{{adDetails._id}}/edit" class="edit">Edit</a>
+              <a routerLink="/data/catalog/{{adDetails._id}}/delete" class="delete">Delete</a>
+            
+            </div>
+          </ng-container>
           </div>
         </div>
       </div>

@@ -1,0 +1,147 @@
+<form [formGroup]="editAdGroup" (ngSubmit)="hanlderEditAd()" class="form">
+    <h3 class="form-title">Добави обява</h3>
+    <div class="grid-2">
+        <div class="form-controll">
+
+            <div class="form-input">
+                
+                <input formControlName="title" [ngModel]="adDetails?.title"  type="text" name="title" id="title">
+                
+
+                <label for="title">Заглавие</label>
+                <ng-container
+                    *ngIf="editAdGroup.controls['title'].touched && editAdGroup.controls['title'].invalid">
+                    <p *ngIf="editAdGroup.controls['title'].errors?.['required']" class="error">
+                        Title is required
+                    </p>
+                    <p *ngIf="editAdGroup.controls['title'].errors?.['minlength']" class="error">
+                        Title must be at least 3 characters long!
+                    </p>
+                </ng-container>
+            </div>
+        </div>
+
+
+
+        <div class="form-controll">
+
+            <div class="form-input">
+
+                
+                <input formControlName="category" [ngModel]="adDetails?.category" type="text" name="category" id="category">
+                <label for="category">Категория</label>
+                <ng-container
+                    *ngIf="editAdGroup.controls['category'].touched && editAdGroup.controls['category'].invalid">
+
+                    <p *ngIf="editAdGroup.controls['category'].errors?.['required']" class="error">
+                        Category is required
+                    </p>
+                    <p *ngIf="editAdGroup.controls['category'].errors?.['minlength']" class="error">
+                        Category must be at least 3 characters long!
+                    </p>
+
+                </ng-container>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="form-controll">
+        <div class="form-input">
+
+            <input formControlName="description"  [ngModel]="adDetails?.description" type="text" name="description" id="description"> 
+
+            <label for="description">Описание</label>
+            <ng-container
+                *ngIf="editAdGroup.controls['description'].touched && editAdGroup.controls['description'].invalid">
+
+                <p *ngIf="editAdGroup.controls['description'].errors?.['required']" class="error">
+                    Description is required
+                </p>
+                <p *ngIf="editAdGroup.controls['description'].errors?.['minlength']" class="error">
+                    Description must be at least 10 characters long!
+                </p>
+
+            </ng-container>
+        </div>
+    </div>
+    <div class="form-controll">
+        <div class="form-input">
+
+            <input formControlName="imageUrl" [ngModel]="adDetails?.imageUrl" type="text"  name="imageUrl" id="imageUrl" >
+            <label  for="imageUrl">Снимка</label>
+            <ng-container
+                *ngIf="editAdGroup.controls['imageUrl'].touched && editAdGroup.controls['imageUrl'].invalid">
+                <p *ngIf="editAdGroup.controls['imageUrl'].errors?.['required']" class="error">
+                    Image is required
+                </p>
+                <p *ngIf="editAdGroup.controls['imageUrl'].errors?.['pattern']" class="error">
+                    Image URL is not valid!
+                </p>
+
+            </ng-container>
+        </div>
+    </div>
+    
+                
+   
+    <div class="grid-2">
+        <div class="form-controll">
+            <div class="form-input">
+                <input formControlName="price" [ngModel]="adDetails?.price " type="text">
+                <label for="price">Цена</label>
+                <ng-container
+                *ngIf="editAdGroup.controls['price'].touched && editAdGroup.controls['price'].invalid">
+                <p *ngIf="editAdGroup.controls['price'].errors?.['required']" class="error">
+                    Price is required
+                </p>
+                <p *ngIf="editAdGroup.controls['price'].errors?.['min']" class="error">
+                    Price must be positive number!
+                </p>
+
+            </ng-container>
+
+            </div>
+        </div>
+
+        <div class="form-controll">
+            <div class="form-input">
+                <input formControlName="location" [ngModel]="adDetails?.location" type="text" name="location" id="location" >
+                <label for="location">Град</label>
+                <ng-container
+                *ngIf="editAdGroup.controls['location'].touched && editAdGroup.controls['location'].invalid">
+                <p *ngIf="editAdGroup.controls['location'].errors?.['required']" class="error">
+                    Location is required
+                </p>
+                
+
+            </ng-container>
+                
+
+            </div>
+        </div>
+        <div class="form-controll">
+            <div class="form-input">
+
+                <input formControlName="contact" [ngModel]="adDetails?.contact" type="text" name="contact" id="contact" >
+                <label for="contact">Контакт</label>
+                <ng-container
+                *ngIf="editAdGroup.controls['contact'].touched && editAdGroup.controls['contact'].invalid">
+                <p *ngIf="editAdGroup.controls['contact'].errors?.['required']" class="error">
+                    Please enter your email or phone number so users can contact you!
+                </p>
+                
+
+            </ng-container>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="_error">
+        {{_error}}
+    </ng-container>
+    <div class="form-submit">
+        <button [disabled]="editAdGroup.invalid"><i class="fa-sharp fa-solid fa-plus"></i>Запази</button>
+    </div>
+</form>
+

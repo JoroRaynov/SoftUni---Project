@@ -23,7 +23,30 @@ img {
     margin-bottom: 20px;
   }
 }
+.edit{
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  margin: 68px;
+  border: 1px solid green;
+  border-radius: 4px;
+  background-color: green;
+  padding: 12px 8px 
+}
+.action {
+  margin-top: 22px
+}
 
+.delete{
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  margin: 68px;
+  border: 1px solid red;
+  border-radius: 4px;
+  background-color: red;
+  padding: 12px 8px 
+}
 .preview-pic {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -111,7 +134,7 @@ img {
 
 .checked,
 .price span {
-  color: #ff9f1a;
+  color: #080808;
 }
 
 .product-title,

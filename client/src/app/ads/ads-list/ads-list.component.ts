@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { IAd } from '../../shared/interfaces/ad';
 
@@ -12,6 +12,7 @@ export class AdsListComponent implements OnInit {
   adList: IAd[] | null = null;
 
   constructor(private apiService: ApiService) { }
+  
 
   ngOnInit(): void {
     this.apiService.loadAds().subscribe({

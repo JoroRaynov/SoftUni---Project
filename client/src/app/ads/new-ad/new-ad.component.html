@@ -1,65 +1,144 @@
-
-
-<form action="#" method="POST" class="form">
+<form [formGroup]="createAdGroup" (ngSubmit)="hanlderNewAd()" class="form">
     <h3 class="form-title">Добави обява</h3>
     <div class="grid-2">
         <div class="form-controll">
+
             <div class="form-input">
-                <input type="text" name="first_name" id="first_name" required>
-                <label for="first_name">Заглавие</label>
+                <input formControlName="title" type="text" name="title" id="title">
+                <label for="title">Заглавие</label>
+                <ng-container
+                    *ngIf="createAdGroup.controls['title'].touched && createAdGroup.controls['title'].invalid">
+                    <p *ngIf="createAdGroup.controls['title'].errors?.['required']" class="error">
+                        Title is required
+                    </p>
+                    <p *ngIf="createAdGroup.controls['title'].errors?.['minlength']" class="error">
+                        Title must be at least 3 characters long!
+                    </p>
+                </ng-container>
             </div>
         </div>
+
+
+
         <div class="form-controll">
+
             <div class="form-input">
-                <input type="text" name="first_name" id="first_name" required>
-                <label for="first_name">Категория</label>
+                <input formControlName="category" type="text" name="category" id="category">
+                <label for="category">Категория</label>
+                <ng-container
+                    *ngIf="createAdGroup.controls['category'].touched && createAdGroup.controls['category'].invalid">
+
+                    <p *ngIf="createAdGroup.controls['category'].errors?.['required']" class="error">
+                        Category is required
+                    </p>
+                    <p *ngIf="createAdGroup.controls['category'].errors?.['minlength']" class="error">
+                        Category must be at least 3 characters long!
+                    </p>
+
+                </ng-container>
             </div>
         </div>
-        
+
     </div>
-   
-    
+
+
     <div class="form-controll">
-        <div class="form-input"> 
-            
-             <input type="text" name="imageUrl" id="imageUrl" required>
-            <label for="imageUrl">Описание</label>
+        <div class="form-input">
+
+            <input formControlName="description" type="text" name="description" id="description">
+            <label for="description">Описание</label>
+            <ng-container
+                *ngIf="createAdGroup.controls['description'].touched && createAdGroup.controls['description'].invalid">
+
+                <p *ngIf="createAdGroup.controls['description'].errors?.['required']" class="error">
+                    Description is required
+                </p>
+                <p *ngIf="createAdGroup.controls['description'].errors?.['minlength']" class="error">
+                    Description must be at least 10 characters long!
+                </p>
+
+            </ng-container>
         </div>
-    </div> 
+    </div>
     <div class="form-controll">
-        <div class="form-input"> 
-            
-             <input type="text" name="description" id="description" required>
-            <label for="description">Снимка</label>
+        <div class="form-input">
+
+            <input formControlName="imageUrl" type="text" name="imageUrl" id="imageUrl" >
+            <label  for="imageUrl">Снимка</label>
+            <ng-container
+                *ngIf="createAdGroup.controls['imageUrl'].touched && createAdGroup.controls['imageUrl'].invalid">
+                <p *ngIf="createAdGroup.controls['imageUrl'].errors?.['required']" class="error">
+                    Image is required
+                </p>
+                <p *ngIf="createAdGroup.controls['imageUrl'].errors?.['pattern']" class="error">
+                    Image URL is not valid!
+                </p>
+
+            </ng-container>
         </div>
-    </div> 
+    </div>
     <!-- <textarea id="textArea" name="w3review" placeholder="Описание" rows="4" cols="50">
                 
     </textarea> -->
     <div class="grid-2">
         <div class="form-controll">
             <div class="form-input">
-                <input type="text" name="price" id="price" required>
+                <input formControlName="price" type="number" name="price" id="price" >
                 <label for="price">Цена</label>
+                <ng-container
+                *ngIf="createAdGroup.controls['price'].touched && createAdGroup.controls['price'].invalid">
+                <p *ngIf="createAdGroup.controls['price'].errors?.['required']" class="error">
+                    Price is required
+                </p>
+                <p *ngIf="createAdGroup.controls['price'].errors?.['min']" class="error">
+                    Price must be positive number!
+                </p>
+
+            </ng-container>
                 <!-- Password Show and Hide-->
                 <div class="password-showHide">
-                   
+
                 </div>
 
             </div>
         </div>
-        
+
         <div class="form-controll">
             <div class="form-input">
-                <input type="password" name="location" id="location" required>
+                <input formControlName="location" type="text" name="location" id="location" >
                 <label for="location">Град</label>
-                <!-- Password Show and Hide-->
+                <ng-container
+                *ngIf="createAdGroup.controls['location'].touched && createAdGroup.controls['location'].invalid">
+                <p *ngIf="createAdGroup.controls['location'].errors?.['required']" class="error">
+                    Location is required
+                </p>
                 
+
+            </ng-container>
+                <!-- Password Show and Hide-->
+
+            </div>
+        </div>
+        <div class="form-controll">
+            <div class="form-input">
+
+                <input formControlName="contact" type="text" name="contact" id="contact" >
+                <label for="contact">Контакт</label>
+                <ng-container
+                *ngIf="createAdGroup.controls['contact'].touched && createAdGroup.controls['contact'].invalid">
+                <p *ngIf="createAdGroup.controls['contact'].errors?.['required']" class="error">
+                    Please enter your email or phone number so users can contact you!
+                </p>
+                
+
+            </ng-container>
             </div>
         </div>
     </div>
+    <ng-container *ngIf="_error">
+        {{_error}}
+    </ng-container>
     <div class="form-submit">
-        <button type="submit"><i class="fa-sharp fa-solid fa-plus"></i>Добави</button>
+        <button [disabled]="createAdGroup.invalid"><i class="fa-sharp fa-solid fa-plus"></i>Добави</button>
     </div>
 </form>
-

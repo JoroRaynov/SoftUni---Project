@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { AuthService } from 'src/app/auth/auth.service';
 import { IAd } from 'src/app/shared/interfaces/ad';
 
 @Component({
@@ -9,10 +10,14 @@ import { IAd } from 'src/app/shared/interfaces/ad';
   styleUrls: ['./ad-details.component.css'],
 })
 export class AdDetailsComponent implements OnInit {
+
+  _isOwner: boolean = false;
+
   adDetails!: IAd;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -20,5 +25,18 @@ export class AdDetailsComponent implements OnInit {
     this.apiService.loadAd(adId).subscribe(ad => {
       this.adDetails = ad;
     });
+    this.authService.userProfile().subscribe({
+      next: (user) => {
+        if(user.userAds.includes(adId)){
+          this._isOwner = true;
+        }
+      }
+    });
   }
 }
+  
+   
+    
+  
+
+

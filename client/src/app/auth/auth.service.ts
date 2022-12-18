@@ -50,7 +50,6 @@ export class AuthService {
 
   userProfile() {
     const accessToken = getSession().token.accessToken;
-    console.log(accessToken);
     
     return this.httpClient.get<IUser>(`${apiURL}/auth/profile`, {headers: {'x-authorization': accessToken}});
   }

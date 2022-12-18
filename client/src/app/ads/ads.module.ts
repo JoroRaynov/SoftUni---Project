@@ -4,6 +4,9 @@ import { AdsListComponent } from './ads-list/ads-list.component';
 import { AdsRoutingModule } from './ads-routing.module';
 import { NewAdComponent } from './new-ad/new-ad.component';
 import { AdDetailsComponent } from './ad-details/ad-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditAdComponent } from './edit-ad/edit-ad.component';
+import { DeleteAdComponent } from './delete-ad/delete-ad.component';
 
 
 
@@ -11,12 +14,15 @@ import { AdDetailsComponent } from './ad-details/ad-details.component';
   declarations: [
     AdsListComponent,
     NewAdComponent,
-    AdDetailsComponent
+    AdDetailsComponent,
+    EditAdComponent,
+    DeleteAdComponent
 
   ],
   imports: [
     CommonModule,
-    AdsRoutingModule
+    AdsRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     AdsListComponent

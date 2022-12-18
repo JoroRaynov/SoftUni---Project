@@ -37,7 +37,6 @@ export class LoginComponent {
   handleLogin(): void {
     this.authService.login$(this.loginFormGroup.value).subscribe({
       next: (userData) => {
-        console.log(userData);
         
         // localStorage.setItem('currentUser', JSON.stringify(userData))
         setSession(userData);

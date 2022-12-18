@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
 import { passwordMatch } from '../../auth/util/util';
 import { setSession } from '../util/api';
 
@@ -39,21 +39,30 @@ export class RegisterComponent implements OnInit {
     tel: new FormControl(''),
   });
 
-  constructor(private router: Router,private formBuilder: FormBuilder,private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
   handleRegister(): void {
-    if(this.registerFormGroup.invalid) {return;}
-    const { email, passwords:{password, rePassword}, tel } = this.registerFormGroup.value;
-    
+    if (this.registerFormGroup.invalid) {
+      return;
+    }
+    const {
+      email,
+      passwords: { password, rePassword },
+      tel,
+    } = this.registerFormGroup.value;
+
     this.authService.register$(email, password, tel).subscribe({
       next: (data) => {
         setSession(data);
         // localStorage.setItem('currentUser', JSON.stringify({ data }) ),
-        this.router.navigate(['/'])
-      }
+        this.router.navigate(['/']);
+      },
     });
   }
-
 }

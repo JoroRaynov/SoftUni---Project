@@ -4,8 +4,7 @@ import { environment } from '../environments/environment';
 import { IAd } from './shared/interfaces/ad';
 import { IUser } from './shared/interfaces/user';
 import { Observable } from 'rxjs';
-
-
+import { getSession } from './auth/util/api';
 
 const apiURL = environment.apiURL;
 
@@ -13,10 +12,7 @@ const apiURL = environment.apiURL;
   providedIn: 'root',
 })
 export class ApiService {
-
-  
   constructor(private httpClient: HttpClient) {}
-
 
   // loadPostList(themeId: string, limit?: number): Observable<IPost[]> {
   //   return this.http.get<IPost[]>(
@@ -24,21 +20,50 @@ export class ApiService {
   //   );
   // }
   loadOnlySixAds() {
-      return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog/six`)
+    return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog/six`);
   }
-  
+
   loadAds() {
     return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog`);
   }
-  
 
-  loadAd(id: string): Observable<IAd>{
+  loadAd(id: string): Observable<IAd> {
     return this.httpClient.get<IAd>(`${apiURL}/data/catalog/${id}`);
   }
 
-  
-
   getAdsByUserId(id: string) {
-    return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog?where=_ownerId%3D%22${id}%22`)
+    return this.httpClient.get<IAd[]>(
+      `${apiURL}/data/catalog?where=_ownerId%3D%22${id}%22`
+    );
+  }
+
+  creteAd(
+    title: string,
+    category: string,
+    description: string,
+    imageUrl: string,
+    price: number,
+    location: string,
+    contact: string
+  ) {
+    const accessToken = getSession().token.accessToken;
+    return this.httpClient.post<IAd>(
+      `${apiURL}/data/catalog`,
+      { title, category, description, imageUrl, price, location, contact },
+      { headers: { 'x-authorization': accessToken } }
+    );
+  }
+
+  editAd(id: string, body: any) {
+    const accessToken = getSession().token.accessToken;
+
+    return this.httpClient.put<IAd>(`${apiURL}/data/catalog/${id}`, body, {
+      headers: { 'x-authorization': accessToken },
+    });
+  }
+
+  deleteAd(id: string) {
+    const accessToken = getSession().token.accessToken;
+    return this.httpClient.delete(`${apiURL}/data/catalog/${id}`, { headers: { 'x-authorization': accessToken}})
   }
 }

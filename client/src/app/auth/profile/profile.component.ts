@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   
     this.authService.userProfile().subscribe({
       next: (value) => {
-        console.log(value);
+        console.log(value)
         this.userData = value;
       },
       error: (err) => {
