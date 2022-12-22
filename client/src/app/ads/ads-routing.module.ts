@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../shared/guards/auth.activate';
+import { isOwner } from '../shared/guards/isOwner';
 import { AdDetailsComponent } from './ad-details/ad-details.component';
 import { AdsListComponent } from './ads-list/ads-list.component';
 import { DeleteAdComponent } from './delete-ad/delete-ad.component';
@@ -20,11 +21,12 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    canActivate: [AuthActivate],
+    // canActivate: [AuthActivate],
     component: AdDetailsComponent,
   },
   {
     path: 'data/catalog/:id/edit',
+
     canActivate: [AuthActivate],
     component: EditAdComponent
   },

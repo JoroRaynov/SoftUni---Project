@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { getSession } from 'src/app/auth/util/api';
 
 @Component({
   selector: 'app-delete-ad',
@@ -15,6 +16,8 @@ export class DeleteAdComponent implements OnInit {
 
   ngOnInit(): void {
     this.adId = this.activatedRoute.snapshot.params['id'];
+    const userId = getSession().token._id;
+
     this.apiService.deleteAd(this.adId).subscribe(data => {
     });
     this.router.navigate(['/']);

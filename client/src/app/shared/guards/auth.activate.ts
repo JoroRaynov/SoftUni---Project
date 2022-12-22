@@ -18,18 +18,12 @@ export class AuthActivate implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | boolean
-    | UrlTree
-     {
-        // if(this.authService.isLoggedIn){
-        //     return true;
-        // } 
-        if (localStorage.getItem('currentUser')) {
-          // logged in so return true
-          return true;
-      }
-       this.router.navigate(['/auth/login'])
-       return false;
+  ): boolean | UrlTree {
+    if (localStorage.getItem('currentUser')) {
+      // logged in so return true
+      return true;
+    }
+    this.router.navigate(['/auth/login']);
+    return false;
   }
 }

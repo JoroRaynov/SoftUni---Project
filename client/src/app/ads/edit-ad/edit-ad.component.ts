@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { getSession } from 'src/app/auth/util/api';
 import { IAd } from 'src/app/shared/interfaces/ad';
 
 @Component({
@@ -46,10 +47,15 @@ export class EditAdComponent implements OnInit {
 
   ngOnInit(): void {
     this.adId = this.activatedRoute.snapshot.params['id'];
-
+    const userId = getSession().token._id;
+    // console.log(userId);
     this.apiService.loadAd(this.adId).subscribe({
-      next: (data) => {
-        this.adDetails = data;
+      next: (ad) => {
+    if(userId === ad._ownerId._id) {
+      this.adDetails = ad;
+    } else {
+      this.router.navigate(['/'])
+    }
       },
       error: (err) => {
         console.log(err);
