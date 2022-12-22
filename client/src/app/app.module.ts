@@ -9,11 +9,13 @@ import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
 import { AdsModule } from './ads/ads.module';
 import { AdsRoutingModule } from './ads/ads-routing.module';
+import { RefreshComponent } from './shared/refresh/refresh.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    RefreshComponent,
   ],
   imports: [
     BrowserModule,

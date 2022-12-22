@@ -40,6 +40,9 @@ export class NewAdComponent implements OnInit {
         this._error = error.error.message;
       }
     })
-    this.router.navigate(['/data/catalog'])
+    // this.router.navigate(['/data/catalog'])
+    this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    })
   }
 }

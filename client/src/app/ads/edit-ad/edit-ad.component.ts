@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { tap } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 import { getSession } from 'src/app/auth/util/api';
 import { IAd } from 'src/app/shared/interfaces/ad';
@@ -42,20 +44,21 @@ export class EditAdComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
     this.adId = this.activatedRoute.snapshot.params['id'];
     const userId = getSession().token._id;
-    // console.log(userId);
+
     this.apiService.loadAd(this.adId).subscribe({
       next: (ad) => {
-    if(userId === ad._ownerId._id) {
-      this.adDetails = ad;
-    } else {
-      this.router.navigate(['/'])
-    }
+        if (userId === ad._ownerId._id) {
+          this.adDetails = ad;
+        } else {
+          this.router.navigate(['/']);
+        }
       },
       error: (err) => {
         console.log(err);
@@ -65,7 +68,6 @@ export class EditAdComponent implements OnInit {
 
   hanlderEditAd(): void {
     if (this.editAdGroup.invalid) {
-    
       console.log(this.editAdGroup.value);
       return;
     }
@@ -84,13 +86,17 @@ export class EditAdComponent implements OnInit {
         contact,
       })
       .subscribe({
-        next: (data) => {
-        },
+        next: (data) => {},
         error: (error) => {
           this._error = error.error.message;
         },
       });
 
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
+    this.router
+      .navigateByUrl('/refresh', { skipLocationChange: true })
+      .then(() => {
+        this.router.navigate(['/']);
+      });
   }
 }
