@@ -22,12 +22,7 @@ export class isOwner implements CanActivate, OnInit {
         console.log(this.activatedRoute)
         ;
         console.log(adId);
-        // this.apiService.loadAd(adId).subscribe({
-        //     next: (ad) => {
-        //         console.log(ad)
-
-        //     }
-        // });
+        
         return true;
     }
 

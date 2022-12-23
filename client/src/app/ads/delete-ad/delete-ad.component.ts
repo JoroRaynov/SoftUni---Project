@@ -25,15 +25,9 @@ export class DeleteAdComponent implements OnInit {
       next: (ad) => {
         if (userId === ad._ownerId._id) {
           this.apiService.deleteAd(this.adId).subscribe((data) => {});
-          this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/']);
-          })
-         
+          this.router.navigate(['/']);
         } else {
-          // this.router.navigate(['/']);
-          this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/']);
-          })
+          this.router.navigate(['/']);
         }
       },
       error: (error) => {

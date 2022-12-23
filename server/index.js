@@ -5,8 +5,7 @@ const authController = require('./controllers/authController')
 const trimBody = require('./middlewares/trimBody')
 const session = require('./middlewares/session');
 const dataController = require('./controllers/dataController');
-// const cookieParser = require('cookie-parser')
-// const secret = 'asdasddssdf'
+
 
 const connectionString = 'mongodb://localhost:27017/olx';
 
@@ -19,7 +18,6 @@ async function start() {
 
         const app = express();
         app.use(express.json());
-        // app.use(cookieParser(secret))
         app.use(cors());
         app.use(trimBody())
         app.use(session());

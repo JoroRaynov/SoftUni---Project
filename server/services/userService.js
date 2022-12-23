@@ -21,7 +21,6 @@ async function register(email, password, tel) {
 
 async function getUserData (id){
     return  User.findById(id);
-    // .populate('userAds');
 }
 
 async function login(email, password) {

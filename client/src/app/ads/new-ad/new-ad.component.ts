@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { IAd } from 'src/app/shared/interfaces/ad';
 
 @Component({
   selector: 'app-new-ad',
@@ -9,7 +10,6 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./new-ad.component.css']
 })
 export class NewAdComponent implements OnInit {
-
   _error = null;
 
   createAdGroup: FormGroup = this.formBuilder.group({
@@ -25,6 +25,7 @@ export class NewAdComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+   
   }
 
   hanlderNewAd(): void{
@@ -41,8 +42,7 @@ export class NewAdComponent implements OnInit {
       }
     })
     // this.router.navigate(['/data/catalog'])
-    this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/']);
-    })
+    
   }
 }

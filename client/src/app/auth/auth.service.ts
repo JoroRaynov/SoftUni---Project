@@ -10,10 +10,6 @@ import { getSession } from './util/api';
 const apiURL = environment.apiURL;
 
 
-// export interface CreateUserDto {
-//   email: string, password: string, tel?: string
-// }
-
 @Injectable({
   providedIn: 'root'
 })

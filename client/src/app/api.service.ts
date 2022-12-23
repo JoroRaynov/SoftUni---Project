@@ -48,34 +48,25 @@ export class ApiService {
     contact: string
   ) {
     const accessToken = getSession().token.accessToken;
-    return this.httpClient
-      .post<IAd>(
-        `${apiURL}/data/catalog`,
-        { title, category, description, imageUrl, price, location, contact },
-        { headers: { 'x-authorization': accessToken } }
-      )
-      // .pipe(
-      //   tap((x) => {
-      //     // console.log(x)
-      //     this._refreshNeeded$.next();
-      //   })
-      // );
+    return this.httpClient.post<IAd>(
+      `${apiURL}/data/catalog`,
+      { title, category, description, imageUrl, price, location, contact },
+      { headers: { 'x-authorization': accessToken } }
+    );
   }
 
   editAd(id: string, body: any) {
     const accessToken = getSession().token.accessToken;
 
-    return this.httpClient
-      .put<IAd>(`${apiURL}/data/catalog/${id}`, body, {
-        headers: { 'x-authorization': accessToken },
-      });
+    return this.httpClient.put<IAd>(`${apiURL}/data/catalog/${id}`, body, {
+      headers: { 'x-authorization': accessToken },
+    });
   }
 
   deleteAd(id: string) {
     const accessToken = getSession().token.accessToken;
-    return this.httpClient
-      .delete(`${apiURL}/data/catalog/${id}`, {
-        headers: { 'x-authorization': accessToken },
-      })
+    return this.httpClient.delete(`${apiURL}/data/catalog/${id}`, {
+      headers: { 'x-authorization': accessToken },
+    });
   }
 }

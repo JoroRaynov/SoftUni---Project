@@ -11,6 +11,7 @@ import { tap } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 import { getSession } from 'src/app/auth/util/api';
 import { IAd } from 'src/app/shared/interfaces/ad';
+import { MainComponent } from 'src/app/main/main.component';
 
 @Component({
   selector: 'app-edit-ad',
@@ -44,8 +45,7 @@ export class EditAdComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    private formBuilder: FormBuilder,
-    private location: Location
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -68,12 +68,11 @@ export class EditAdComponent implements OnInit {
 
   hanlderEditAd(): void {
     if (this.editAdGroup.invalid) {
-      console.log(this.editAdGroup.value);
       return;
     }
     const { title, category, description, imageUrl, price, location, contact } =
       this.editAdGroup.value;
-
+    console.log(price);
     this.adId = this.activatedRoute.snapshot.params['id'];
     this.apiService
       .editAd(this.adId, {
@@ -86,17 +85,14 @@ export class EditAdComponent implements OnInit {
         contact,
       })
       .subscribe({
-        next: (data) => {},
+        next: (data) => {
+          console.log(data);
+        },
         error: (error) => {
           this._error = error.error.message;
         },
       });
 
-    // this.router.navigate(['/']);
-    this.router
-      .navigateByUrl('/refresh', { skipLocationChange: true })
-      .then(() => {
-        this.router.navigate(['/']);
-      });
+    this.router.navigate(['/']);
   }
 }

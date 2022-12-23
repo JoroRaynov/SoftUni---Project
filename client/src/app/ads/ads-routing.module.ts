@@ -21,7 +21,6 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    // canActivate: [AuthActivate],
     component: AdDetailsComponent,
   },
   {

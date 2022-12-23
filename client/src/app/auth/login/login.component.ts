@@ -31,14 +31,11 @@ export class LoginComponent {
     private router: Router,
     private authService: AuthService
   ) {}
-  // loginHandler(): void{
-  //   console.log('form is submitted', this.loginFormGroup);
-  // }
+
   handleLogin(): void {
     this.authService.login$(this.loginFormGroup.value).subscribe({
       next: (userData) => {
         
-        // localStorage.setItem('currentUser', JSON.stringify(userData))
         setSession(userData);
 
         this.router.navigate(['/']);

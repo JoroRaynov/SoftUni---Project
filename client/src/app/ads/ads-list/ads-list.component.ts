@@ -7,11 +7,14 @@ import { IAd } from '../../shared/interfaces/ad';
   templateUrl: './ads-list.component.html',
   styleUrls: ['./ads-list.component.css']
 })
-export class AdsListComponent implements OnInit {
+export class AdsListComponent implements OnInit, OnChanges {
   
   adList: IAd[] | null = null;
 
   constructor(private apiService: ApiService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
   
 
   ngOnInit(): void {
