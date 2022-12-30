@@ -23,7 +23,7 @@ img {
     margin-bottom: 20px;
   }
 }
-.edit{
+.edit {
   text-decoration: none;
   font-size: 18px;
   color: black;
@@ -31,21 +31,46 @@ img {
   border: 1px solid green;
   border-radius: 4px;
   background-color: green;
-  padding: 12px 8px 
+  padding: 12px 8px;
 }
 .action {
-  margin-top: 22px
+  margin-top: 22px;
 }
 
-.delete{
+.delete {
+  
   text-decoration: none;
   font-size: 18px;
-  color: black;
+  font-weight: 300;
+  color: #002F34;
   margin: 68px;
-  border: 1px solid red;
-  border-radius: 4px;
+  border: 1px ;
+  border-radius: 6px;
   background-color: red;
-  padding: 12px 8px 
+  padding: 12px 33px;
+}
+.delete:hover {
+  background-color: #002F34;
+  color: red;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.edit {
+  
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 300;
+  color: #1b9301;
+  margin: 68px;
+  border: 1px ;
+  border-radius: 6px;
+  background-color:#002F34;
+  padding: 12px 33px;
+}
+.edit:hover {
+  background-color: #002F34;
+  color: red;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .preview-pic {
   -webkit-box-flex: 1;
@@ -87,7 +112,7 @@ img {
   border-radius: 21px;
   margin-bottom: 8px;
   overflow: hidden;
-  width: 60%
+  width: 60%;
 }
 .card {
   margin-top: 50px;
@@ -182,20 +207,16 @@ img {
   color: #fff;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  border: 2px solid #002F34;
+  border: 2px solid #002f34;
 }
 
-
-
-.add-to-cart:hover
- {
-    background: #fff;
+.add-to-cart:hover {
+  background: #fff;
   color: #002f34;
- 
 }
 .like:hover {
-    background: #fff;
-    color: #ff0606;
+  background: #fff;
+  color: #ff0606;
 }
 .not-available {
   text-align: center;

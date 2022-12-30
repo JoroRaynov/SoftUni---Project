@@ -1,10 +1,11 @@
+<app-spinner *ngIf="!adList"></app-spinner>
 <ng-container *ngIf="adList">
 
     <h2 class="heroTitle">Последно добавени обяви</h2>
-    
+
     <!-- <section id="articleSection">
         <ul class="articles"> -->
-            <!-- <ng-container *ngFor="let ad of adList">
+    <!-- <ng-container *ngFor="let ad of adList">
             <li>
                 <article class="article">
                     <div class="articleImageWrapper">
@@ -20,12 +21,12 @@
                 </article>
             </li>
         </ng-container> -->
-        <app-ads-list [adList]="adList"></app-ads-list>
-        <!-- </ul>
+    <app-ads-list [adList]="adList"></app-ads-list>
+    <!-- </ul>
     </section> -->
-    </ng-container>
-    <ng-container *ngIf="!adList">
-        <h2 class="heroTitle"> Все още няма обяви...</h2>
-    </ng-container>
-                    <!-- <span class="articleItem">Category: {{ad.category}}</span> -->
-    
+    <!-- <mat-paginator [length]="100"  aria-label="Select page">
+    </mat-paginator> -->
+</ng-container>
+
+
+<!-- <span class="articleItem">Category: {{ad.category}}</span> -->

@@ -9,11 +9,16 @@ import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
 import { AdsModule } from './ads/ads.module';
 import { AdsRoutingModule } from './ads/ads-routing.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { PaginatorComponent } from './shared/paginator/paginator.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    PaginatorComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +29,8 @@ import { AdsRoutingModule } from './ads/ads-routing.module';
     CoreModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
