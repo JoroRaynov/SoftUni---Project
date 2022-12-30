@@ -2,10 +2,10 @@
 
 <h2 class="heroTitle">Всички обяви</h2> -->
 
-<!-- <section id="articleSection">
-    <ul class="articles"> -->
-        <ng-container *ngFor="let ad of adList">
-        <li>
+<section id="articleSection">
+    <ul class="articles">
+        <ng-container >
+        <li *ngFor="let ad of adList">
             <article class="article">
                 <div class="articleImageWrapper">
                     <a routerLink="/details/{{ad._id}}">
@@ -21,8 +21,8 @@
             </article>
         </li>
     </ng-container>
-    <!-- </ul>
-</section> -->
+    </ul>
+</section>
 <!-- </ng-container>
 <ng-container *ngIf="!adList">
     <h2 class="heroTitle"> Все още няма обяви...</h2>
