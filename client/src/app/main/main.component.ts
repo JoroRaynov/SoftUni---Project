@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { ApiService } from '../api.service';
 import { IAd } from '../shared/interfaces/ad';
 
@@ -13,9 +14,9 @@ export class MainComponent implements OnInit, OnChanges {
 
   constructor(private apiService: ApiService) { }
   
-
-  ngOnInit(): void {
-    this.apiService.loadOnlySixAds().subscribe({
+  ngOnInit(): void{
+    this.apiService.loadOnlySixAds()
+    .subscribe({
       next: (value) => {
         
         this.adList = value;

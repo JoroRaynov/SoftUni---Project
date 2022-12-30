@@ -30,6 +30,7 @@ async function update(id, data) {
 
     existing.title = data.title;
     existing.category = data.category;
+    existing.price = data.price;
     existing.imageUrl = data.imageUrl;
     existing.description = data.description;
     existing.location = data.location;

@@ -16,8 +16,7 @@ import { DeleteAdComponent } from './delete-ad/delete-ad.component';
     NewAdComponent,
     AdDetailsComponent,
     EditAdComponent,
-    DeleteAdComponent
-
+    DeleteAdComponent,
   ],
   imports: [
     CommonModule,

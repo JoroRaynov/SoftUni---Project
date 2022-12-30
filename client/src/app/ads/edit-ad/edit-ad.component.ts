@@ -6,12 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
-import { tap } from 'rxjs';
+
 import { ApiService } from 'src/app/api.service';
 import { getSession } from 'src/app/auth/util/api';
 import { IAd } from 'src/app/shared/interfaces/ad';
-import { MainComponent } from 'src/app/main/main.component';
 
 @Component({
   selector: 'app-edit-ad',
@@ -45,7 +43,7 @@ export class EditAdComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit(): void {
@@ -54,6 +52,7 @@ export class EditAdComponent implements OnInit {
 
     this.apiService.loadAd(this.adId).subscribe({
       next: (ad) => {
+      
         if (userId === ad._ownerId._id) {
           this.adDetails = ad;
         } else {
@@ -70,6 +69,7 @@ export class EditAdComponent implements OnInit {
     if (this.editAdGroup.invalid) {
       return;
     }
+   
     const { title, category, description, imageUrl, price, location, contact } =
       this.editAdGroup.value;
     console.log(price);

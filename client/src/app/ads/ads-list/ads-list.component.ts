@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { IAd } from '../../shared/interfaces/ad';
 
@@ -9,21 +9,27 @@ import { IAd } from '../../shared/interfaces/ad';
 })
 export class AdsListComponent implements OnInit, OnChanges {
   
-  adList: IAd[] | null = null;
+  @Input() adList!: IAd[];
+  // [] | null = null
 
   constructor(private apiService: ApiService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
+    this.loadAds()
+    console.log('SOME CHANGES',changes['adList']);
+    
   }
   
 
   ngOnInit(): void {
-    this.apiService.loadAds().subscribe({
+    this.loadAds()
+  }
+
+  loadAds(): void {
+this.apiService.loadAds().subscribe({
       next: (value) => {
         this.adList = value;
       },
       error: (error) => console.log(error)
     })
   }
-
 }

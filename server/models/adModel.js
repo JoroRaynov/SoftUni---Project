@@ -8,7 +8,7 @@ const adSchema = new Schema({
         validator: (value) => value.startsWith('http'), 
         message: 'Not valid URL'
     }},
-    price: { type: 'number', required: true, min: [1, 'Price must be positive number']},
+    price: { type: 'number', requirsed: true, min: [1, 'Price must be positive number']},
     description: {type: 'string', required: true, minLength: [10, 'Description must be at least 10 characters long']},
     _ownerId: {type: ObjectId, ref: 'User'},
     location: {type: 'string', required: true},

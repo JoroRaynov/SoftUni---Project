@@ -4,7 +4,7 @@
     
     <section id="articleSection">
         <ul class="articles">
-            <ng-container *ngFor="let ad of adList">
+            <!-- <ng-container *ngFor="let ad of adList">
             <li>
                 <article class="article">
                     <div class="articleImageWrapper">
@@ -15,16 +15,19 @@
                         </a>
                     </div>
                     <h3 class="articleTitle">{{ad.title}}</h3>
-                    <!-- <span class="articleItem">Category: {{ad.category}}</span> -->
                     <p class="articleDescription">{{ad.location}}</p>
                     <p class="articlePrice">{{ad.price}} лв</p>
                 </article>
             </li>
-        </ng-container>
+        </ng-container> -->
+
+
+        <app-ads-list [adList]="adList"></app-ads-list>
         </ul>
     </section>
     </ng-container>
     <ng-container *ngIf="!adList">
         <h2 class="heroTitle"> Все още няма обяви...</h2>
     </ng-container>
+                    <!-- <span class="articleItem">Category: {{ad.category}}</span> -->
     
