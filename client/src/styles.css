@@ -162,9 +162,10 @@ table {
       margin: auto;
       position: relative;
       min-height: 100vh;
+      background-image: #F2F4F5;
   }
   main {
-    padding: 100px
+    padding: 50px 100px 50px 100px
   }
   
 html, body { height: 100%; }

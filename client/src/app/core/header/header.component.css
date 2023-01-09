@@ -27,7 +27,7 @@
 }
 
 i {
-    margin: 1rem;
+    margin: 0.8rem;
 }
 .navigation ul li:last-child{
     margin-right: 0;
@@ -41,30 +41,32 @@ i {
     color: white;
     transition: color 300ms ease-in-out;
 }
-
+.navigation ul li a:hover {
+    color: #7F9799
+}
 .add {
    
-    padding: 10px 24px 10px 24px;
-    margin-right: 2rem;
+    /* padding:  10px 20px 10px 20; */
+    font-family: sans-serif;
 
-    /* background-color: rgb(13, 13, 13); */
-    border: 5px solid #FFFFFF;
+    padding-right: 20px;
+    /* margin-right: 0rem; */
+    background-color: #f9f9f9;
+    border: 3px solid #FFFFFF;
     border-radius: 4px;
-    color: #0e0e0e;
+    color: #002f34;
     font-size: 16px;
     font-weight: 700;
     transition: background-color 300ms ease-in-out;
 }
 
 
-.navigation ul li a:hover {
-    color: #7F9799
+
+.add:hover {
+    color: #ffffff;
+    background-color: #002f34;
 }
 
-.add:hover{
-    background-color: #002f34;
-    color: #fff
-}
 
 /* header {
     background-color: #002f34;

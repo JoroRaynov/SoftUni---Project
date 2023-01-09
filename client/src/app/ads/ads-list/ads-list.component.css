@@ -5,8 +5,27 @@
     display: inline-block;
     width: 20%;
     margin-right: 5%;
-}
+    background-color: white;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    /* border:20px solid white; */
+    transition: all 3000 ease-in-out;
 
+
+}
+.articles li:hover {
+    box-shadow:
+    1.6px 2.2px 13.8px rgba(0, 0, 0, 0.053),
+    3.9px 5.3px 33.3px rgba(0, 0, 0, 0.077),
+    7.3px 9.9px 62.6px rgba(0, 0, 0, 0.095),
+    13px 17.6px 111.7px rgba(0, 0, 0, 0.113),
+    24.2px 33px 208.9px rgba(0, 0, 0, 0.137),
+    58px 79px 500px rgba(0, 0, 0, 0.19);
+    background-color: #CBCBCB;
+    border-radius: 12px
+  
+}
 
 /* .articles li:nth-child(4n+4){
     
@@ -14,31 +33,53 @@
 } */
 
 .article{
-    width: 200px;
-    /* margin-top: 50px; */
-    margin: 50px 50px;
+    width: 100%;
+    margin: 0px auto;
+    /* margin: 50px 50px; */
 }
+
+article:hover {
+}
+
 .heroTitle {
     text-align: center;
 }
 .article .articleImageWrapper{
     aspect-ratio: 1 / 1;
-    border-radius: 21px;
+    /* border-radius: 21px; */
     margin-bottom: 8px;
     overflow: hidden;
-
+    object-fit: cover;
+    width: 100%;
+    border-bottom: none;
+    transition: all 3000 ease-in-out
 
 }
 
+/* .article .articleImageWrapper:hover{
+    border-bottom: 1px solid rgb(4, 46, 4);
+} */
+.articlePrice {
+    font-weight: bold;
+    font-family: sans-serif;
+}
 .article .articleImageWrapper .articleImg {
+    /* border-top-left-radius: 6px;
+    
+    border-top-right-radius: 6px; */
+    
+    
+border-radius: 6px;
+/* border-bottom: 1px solid rgb(73, 72, 72); */
     width: 100%;
-  
+    height: 100%;
+    
 }
 
 .article .articleTitle {
-    font-size: 18px;
+    font-size: 16px;
     font-family: sans-serif;
-    font-weight: bold;
+    /* font-weight: bold; */
     line-height: 28px;
     text-transform: capitalize;
     margin-bottom:12px;
@@ -47,7 +88,7 @@
 .article .articleDescription {
     font-size: 14px;
     font-weight: 300;
-    color: #7F9799;
+    color: #4a4d4d;
 }
 
 .articleItem {
@@ -55,3 +96,15 @@
 
     margin-bottom: 18px
 } 
+
+p, h3 {
+    font-weight:  normal;
+    color: black;
+    margin-left: 20px;
+    /* text-align: center; */
+}
+
+a {
+    text-decoration: none;
+
+}
