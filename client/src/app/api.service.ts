@@ -21,20 +21,20 @@ export class ApiService {
   }
 
   loadOnlySixAds() {
-    return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog/six`);
+    return this.httpClient.get<IAd[]>(`${apiURL}/ads/catalog/six`);
   }
 
   loadAds() {
-    return this.httpClient.get<IAd[]>(`${apiURL}/data/catalog`);
+    return this.httpClient.get<IAd[]>(`${apiURL}/ads/catalog`);
   }
 
   loadAd(id: string): Observable<IAd> {
-    return this.httpClient.get<IAd>(`${apiURL}/data/catalog/${id}`);
+    return this.httpClient.get<IAd>(`${apiURL}/ads/catalog/${id}`);
   }
 
   getAdsByUserId(id: string) {
     return this.httpClient.get<IAd[]>(
-      `${apiURL}/data/catalog?where=_ownerId%3D%22${id}%22`
+      `${apiURL}/ads/catalog?where=_ownerId%3D%22${id}%22`
     );
   }
 
@@ -49,7 +49,7 @@ export class ApiService {
   ) {
     const accessToken = getSession().token.accessToken;
     return this.httpClient.post<IAd>(
-      `${apiURL}/data/catalog`,
+      `${apiURL}/ads/catalog`,
       { title, category, description, imageUrl, price, location, contact },
       { headers: { 'x-authorization': accessToken } }
     );
@@ -58,14 +58,14 @@ export class ApiService {
   editAd(id: string, body: any) {
     const accessToken = getSession().token.accessToken;
 
-    return this.httpClient.put<IAd>(`${apiURL}/data/catalog/${id}`, body, {
+    return this.httpClient.put<IAd>(`${apiURL}/ads/catalog/${id}`, body, {
       headers: { 'x-authorization': accessToken },
     });
   }
 
   deleteAd(id: string) {
     const accessToken = getSession().token.accessToken;
-    return this.httpClient.delete(`${apiURL}/data/catalog/${id}`, {
+    return this.httpClient.delete(`${apiURL}/ads/catalog/${id}`, {
       headers: { 'x-authorization': accessToken },
     });
   }
